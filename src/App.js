@@ -16,7 +16,7 @@ class App extends Component {
           </nav>
           <Switch>
               {/* start Router define */}
-              <Route exact path='/' component={ Index } />
+              <Route exact path='/' component={ Index } />   {/* initially you go this page */}
               <Route path='/create' component={ Create } />
               <Route path='/edit/:id' component={ Edit } />
               <Route path='/index' component={ Index } />

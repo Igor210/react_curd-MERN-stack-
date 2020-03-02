@@ -7,8 +7,7 @@ class TableRow extends Component {
       super(props);
       this.delete = this.delete.bind(this);
   }
-  delete() {
-      let props = this.props; 
+  delete() {  // deleting user using user id
       axios.get('http://localhost:4000/users/delete/'+this.props.obj._id)
           .then(res=>{
             window.location.reload();
@@ -32,7 +31,7 @@ class TableRow extends Component {
             {this.props.obj.birthday}
           </td>
           <td>
-            <Link to={"/edit/"+this.props.obj._id} className="btn btn-primary">Edit</Link>
+            <Link to={"/edit/"+this.props.obj._id} className="btn btn-primary">Edit</Link> {/* going to edit page */}
           </td>
           <td>
             <button onClick={this.delete} className="btn btn-danger">

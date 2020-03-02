@@ -5,11 +5,11 @@ import axios from 'axios';
 export default class Create extends Component {
   constructor(props) {
     super(props);
-    this.onChangeFullName = this.onChangeFullName.bind(this);
-    this.onChangeUserID = this.onChangeUserID.bind(this);
-    this.onChangeEmail = this.onChangeEmail.bind(this);
-    this.onChangeBirthday = this.onChangeBirthday.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    this.onChangeFullName = this.onChangeFullName.bind(this); // handle Full Name value when changing value.
+    this.onChangeUserID = this.onChangeUserID.bind(this); // handle userID value
+    this.onChangeEmail = this.onChangeEmail.bind(this); // handle Email value
+    this.onChangeBirthday = this.onChangeBirthday.bind(this); // handle Birthday value
+    this.onSubmit = this.onSubmit.bind(this);  // when click save button
 
     this.state = {
       full_name: '',
@@ -21,7 +21,7 @@ export default class Create extends Component {
   }
 
   componentDidMount() {  // initial load function
-    axios.get('http://localhost:4000/users/edit/'+this.props.match.params.id)
+    axios.get('http://localhost:4000/users/edit/'+this.props.match.params.id)  // getting edited user data from server.
     .then(response => {
         this.setState({ 
           full_name: response.data.full_name,
@@ -56,7 +56,7 @@ export default class Create extends Component {
     })
   }
 
-  onSubmit(e) {
+  onSubmit(e) {  // when save button
     e.preventDefault();
     const obj = {
       full_name: this.state.full_name,
@@ -64,9 +64,9 @@ export default class Create extends Component {
       email: this.state.email,
       birthday: this.state.birthday
     };
-    axios.post('http://localhost:4000/users/update/'+this.props.match.params.id, obj)
+    axios.post('http://localhost:4000/users/update/'+this.props.match.params.id, obj)  // updateing user data
         .then(res => {
-          this.props.history.push('/index');
+          this.props.history.push('/index');  // if update sucessfuly, going to index page
           console.log(res.data)
         });
   }

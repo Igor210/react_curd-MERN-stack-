@@ -9,7 +9,7 @@ export default class Index extends Component {
       super(props);
       this.state = {users: []};
     }
-    componentDidMount(){
+    componentDidMount(){   // initially function
       const config = {
         mode: "no-cors",
         headers: {
@@ -17,7 +17,7 @@ export default class Index extends Component {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         }
       }
-      axios.get('http://localhost:4000/users', config)
+      axios.get('http://localhost:4000/users', config)  // getting all user data on server when run initial
         .then(response => {
           console.log(response.data)
           this.setState({ users: response.data });
@@ -26,7 +26,7 @@ export default class Index extends Component {
           console.log(error);
         })
     }
-    tabRow(){
+    tabRow(){  // making table using user data
       return this.state.users.map(function(object, i){
           return <TableRow obj={object} key={i} />;
       });

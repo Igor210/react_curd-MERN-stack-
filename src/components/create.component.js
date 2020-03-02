@@ -20,7 +20,7 @@ export default class Create extends Component {
       birthday: '',
     }
   }
-  componentDidMount(){
+  componentDidMount(){  // initall function.
     const config = {
       mode: "no-cors",
       headers: {
@@ -66,7 +66,7 @@ export default class Create extends Component {
       email: this.state.email,
       birthday: this.state.birthday
     };
-    axios.post('http://localhost:4000/users/add', obj)
+    axios.post('http://localhost:4000/users/add', obj)  // adding user in server
         .then(res => {
           this.props.history.push('/index');
           console.log(res.data)
