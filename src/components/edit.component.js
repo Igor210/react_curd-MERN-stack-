@@ -20,7 +20,7 @@ export default class Create extends Component {
     
   }
 
-  componentDidMount() {
+  componentDidMount() {  // initial load function
     axios.get('http://localhost:4000/users/edit/'+this.props.match.params.id)
     .then(response => {
         this.setState({ 

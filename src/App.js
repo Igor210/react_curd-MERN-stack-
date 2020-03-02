@@ -15,10 +15,12 @@ class App extends Component {
             <Link to={'/'} className="navbar-brand">User Management</Link>
           </nav>
           <Switch>
+              {/* start Router define */}
               <Route exact path='/' component={ Index } />
               <Route path='/create' component={ Create } />
               <Route path='/edit/:id' component={ Edit } />
               <Route path='/index' component={ Index } />
+              {/* end Router define */}
           </Switch>
         </div>
       </Router>

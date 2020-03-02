@@ -6,10 +6,10 @@ import { ValidationForm,TextInput } from 'react-bootstrap4-form-validation';
 export default class Create extends Component {
   constructor(props) {
     super(props);
-    this.onChangeFullName = this.onChangeFullName.bind(this);
-    this.onChangeUserID = this.onChangeUserID.bind(this);
-    this.onChangeEmail = this.onChangeEmail.bind(this);
-    this.onChangeBirthday = this.onChangeBirthday.bind(this);
+    this.onChangeFullName = this.onChangeFullName.bind(this); // handle Full Name value when changing value.
+    this.onChangeUserID = this.onChangeUserID.bind(this); // handle userID value when changing value.
+    this.onChangeEmail = this.onChangeEmail.bind(this); // handle email value
+    this.onChangeBirthday = this.onChangeBirthday.bind(this); // handle birthday value
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
@@ -58,7 +58,7 @@ export default class Create extends Component {
     })
   }
 
-  onSubmit(e) {
+  onSubmit(e) {   // When click save, sending request on the server.
     e.preventDefault();
     const obj = {
       full_name: this.state.full_name,
@@ -79,7 +79,7 @@ export default class Create extends Component {
       birthday: ''
     })
   }
-  chkUnique(val) {
+  chkUnique(val) {   // User Id unique checking function
     let users = this.state.users;
     let idchk = true;
     users.map(function(object, i){

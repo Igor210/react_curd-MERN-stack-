@@ -19,6 +19,7 @@ export default class Index extends Component {
       }
       axios.get('http://localhost:4000/users', config)
         .then(response => {
+          console.log(response.data)
           this.setState({ users: response.data });
         })
         .catch(function (error) {
